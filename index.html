@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0032)http://localhost:8744/index.html -->
-<html lang="es" suppresshydrationwarning="true" data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Estrategia de Contenido — Aztec Lab 2026</title>
 <style>
@@ -21,9 +21,10 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--offwh
 /* NAV */
 nav{background:var(--dark);position:sticky;top:0;z-index:100;padding:0 32px;}
 .nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:0;height:52px;}
-.nav-logo{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;margin-right:32px;}
-.nav-links{display:flex;gap:0;}
-.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,.45);padding:0 14px;height:52px;display:flex;align-items:center;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-decoration:none;}
+.nav-logo{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;margin-right:32px;flex-shrink:0;}
+.nav-links{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,.45);padding:0 14px;height:52px;display:flex;align-items:center;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-decoration:none;white-space:nowrap;}
 .nav-link:hover{color:rgba(255,255,255,.8);}
 .nav-link.active{color:var(--accent);border-bottom-color:var(--accent);}
 
@@ -176,6 +177,38 @@ table tr:nth-child(even) td{background:var(--offwhite);}
 .site-footer{background:var(--dark);margin-top:48px;padding:24px;text-align:center;}
 .site-footer p{font-size:11px;color:rgba(255,255,255,.3);}
 .site-footer strong{color:var(--accent);}
+
+/* MOBILE */
+@media(max-width:640px){
+  .hero-inner{padding:32px 16px 28px;}
+  .hero-title{font-size:26px;letter-spacing:-.01em;}
+  .hero-sub{font-size:13px;}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:8px;}
+  .hstat{padding:12px;}
+  .hstat-val{font-size:20px;}
+  nav{padding:0 12px;}
+  .nav-logo{font-size:12px;margin-right:16px;}
+  .nav-link{padding:0 10px;font-size:11px;}
+  .section{padding:28px 16px;}
+  .sec-title{font-size:18px;}
+  .grid2,.grid3,.grid4{grid-template-columns:1fr;}
+  .phases{grid-template-columns:1fr;}
+  .met-grid{grid-template-columns:1fr;}
+  .utm-grid{grid-template-columns:1fr 1fr;}
+  .hook-channels{grid-template-columns:1fr;}
+  .days{grid-template-columns:1fr 1fr;gap:7px;}
+  .timeline{grid-template-columns:repeat(7,140px);overflow-x:auto;padding-bottom:8px;}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .ct-body{padding:0 12px 14px 12px;}
+  .p2-step{gap:10px;}
+  .p2-num{width:28px;height:28px;font-size:12px;flex-shrink:0;}
+  .card{padding:14px 16px;}
+  .card-val{font-size:22px;}
+  .hook-box{padding:16px;}
+  .hook-example{font-size:14px;}
+  .dont-list{padding:14px 14px;}
+  .phase-bar{padding:16px;}
+}
 </style>
 </head>
 <body>
@@ -198,13 +231,13 @@ table tr:nth-child(even) td{background:var(--offwhite);}
   <div class="nav-inner">
     <div class="nav-logo">AZTEC</div>
     <div class="nav-links">
-      <a class="nav-link active" onclick="showSection(&#39;norte&#39;,this)">El Norte</a>
-      <a class="nav-link" onclick="showSection(&#39;sistema&#39;,this)">Sistema Semanal</a>
-      <a class="nav-link" onclick="showSection(&#39;contenido&#39;,this)">Contenido</a>
-      <a class="nav-link" onclick="showSection(&#39;metricas&#39;,this)">Métricas</a>
-      <a class="nav-link" onclick="showSection(&#39;fase2&#39;,this)">Fase 2</a>
-      <a class="nav-link" onclick="showSection(&#39;calendario&#39;,this)">Calendario</a>
-      <a class="nav-link" onclick="showSection(&#39;norules&#39;,this)">No hacer</a>
+      <a class="nav-link active" onclick="showSection('norte',this)">El Norte</a>
+      <a class="nav-link" onclick="showSection('sistema',this)">Sistema Semanal</a>
+      <a class="nav-link" onclick="showSection('contenido',this)">Contenido</a>
+      <a class="nav-link" onclick="showSection('metricas',this)">Métricas</a>
+      <a class="nav-link" onclick="showSection('fase2',this)">Fase 2</a>
+      <a class="nav-link" onclick="showSection('calendario',this)">Calendario</a>
+      <a class="nav-link" onclick="showSection('norules',this)">No hacer</a>
     </div>
   </div>
 </nav>
@@ -261,16 +294,25 @@ table tr:nth-child(even) td{background:var(--offwhite);}
   <div class="sec-sub">Haz clic en cada día para ver exactamente qué se hace, quién lo hace y por qué.</div>
 
   <div class="days">
-    <div class="day" onclick="selectDay(&#39;jue&#39;,this)"><div class="day-name">Jueves</div><div class="day-task">Planear hook y temas</div><div class="day-time">30 min</div></div>
-    <div class="day" onclick="selectDay(&#39;vie&#39;,this)"><div class="day-name">Viernes</div><div class="day-task">Grabar reel + YouTube</div><div class="day-time">3-4 horas</div></div>
-    <div class="day" onclick="selectDay(&#39;dom&#39;,this)"><div class="day-name">Domingo</div><div class="day-task">WhatsApp comunidad</div><div class="day-time">Ya existe</div></div>
-    <div class="day" onclick="selectDay(&#39;lun&#39;,this)"><div class="day-name">Lunes</div><div class="day-task">Publicar reel + YouTube</div><div class="day-time">Programado</div></div>
-    <div class="day" onclick="selectDay(&#39;mar&#39;,this)"><div class="day-name">Martes</div><div class="day-task">Clip OpusClip</div><div class="day-time">Automático</div></div>
-    <div class="day" onclick="selectDay(&#39;mie&#39;,this)"><div class="day-name">Miércoles</div><div class="day-task">HazTech en vivo</div><div class="day-time">7:30pm</div></div>
-    <div class="day active" onclick="selectDay(&#39;vie2&#39;,this)"><div class="day-name">Todos los días</div><div class="day-task">Clips OpusClip diarios</div><div class="day-time">2-3 clips/día</div></div>
+    <div class="day" onclick="selectDay('jue',this)"><div class="day-name">Jueves</div><div class="day-task">Planear hook y temas</div><div class="day-time">30 min</div></div>
+    <div class="day" onclick="selectDay('vie',this)"><div class="day-name">Viernes</div><div class="day-task">Grabar reel + YouTube</div><div class="day-time">3-4 horas</div></div>
+    <div class="day" onclick="selectDay('dom',this)"><div class="day-name">Domingo</div><div class="day-task">WhatsApp comunidad</div><div class="day-time">Ya existe</div></div>
+    <div class="day active" onclick="selectDay('lun',this)"><div class="day-name">Lunes</div><div class="day-task">Publicar reel + YouTube</div><div class="day-time">Programado</div></div>
+    <div class="day" onclick="selectDay('mar',this)"><div class="day-name">Martes</div><div class="day-task">Clip OpusClip</div><div class="day-time">Automático</div></div>
+    <div class="day" onclick="selectDay('mie',this)"><div class="day-name">Miércoles</div><div class="day-task">HazTech en vivo</div><div class="day-time">7:30pm</div></div>
+    <div class="day" onclick="selectDay('vie2',this)"><div class="day-name">Todos los días</div><div class="day-task">Clips OpusClip diarios</div><div class="day-time">2-3 clips/día</div></div>
   </div>
 
-  <div class="day-detail" id="day-detail"><div class="dd-title">Todos los días — Clips de OpusClip (motor de volumen)</div><div class="dd-items"><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>2-3 clips diarios</strong> en Instagram, TikTok y YouTube Shorts. Automático.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>No solo del HazTech:</strong> cualquier video del canal con buena retención es material. Un video de 20 minutos puede dar 5 clips buenos.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Los clips y el reel nativo no compiten:</strong> los clips generan volumen y alcance, el reel convierte. Son complementarios.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Señal de alerta:</strong> si un clip tiene mejor retención que el reel nativo, ese tema es el hook de la semana siguiente.</div></div></div></div>
+  <div class="day-detail" id="day-detail">
+    <div class="dd-title">Lunes — Publicar reel y video de YouTube</div>
+    <div class="dd-items">
+      <div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Reel nativo</strong> en Instagram y TikTok a las 7pm Colombia.</div></div>
+      <div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Video de YouTube</strong> publicado ese mismo día con thumbnail que usa el hook de la semana.</div></div>
+      <div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Caption:</strong> tres líneas. Primera repite el hook. Segunda contexto. Tercera: link en la bio.</div></div>
+      <div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Segundo mensaje WhatsApp</strong> reforzando el HazTech — ya existe, se mantiene con el hook al inicio.</div></div>
+      <div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Responsable:</strong> Juanes programa todo en Metricool el viernes.</div></div>
+    </div>
+  </div>
 
   <div class="hook-box">
     <div class="hook-label">Cómo se construye el hook cada semana</div>
@@ -472,7 +514,7 @@ table tr:nth-child(even) td{background:var(--offwhite);}
   <div class="sec-sub">Las semanas 6 y 7 no tienen video largo de YouTube ni HazTech normal — toda la energía va al lanzamiento.</div>
 
   <table>
-    <tbody><tr>
+    <tr>
       <th>Semana</th>
       <th>Fechas</th>
       <th>HazTech</th>
@@ -528,7 +570,7 @@ table tr:nth-child(even) td{background:var(--offwhite);}
       <td>Sin video largo</td>
       <td>Grupos calientes todos los días · 31 ago evento</td>
     </tr>
-  </tbody></table>
+  </table>
 </div>
 
 <!-- NO HACER -->
@@ -648,6 +690,5 @@ function togglePhase(el) {
 
 selectDay('lun', document.querySelectorAll('.day')[3]);
 </script>
-
-
-</body></html>
+</body>
+</html>
