@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8744/index.html -->
+<html lang="es" suppresshydrationwarning="true" data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estrategia de Contenido — Aztec Lab 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#0D3326;
+  --accent:#6EDD62;
+  --green:#A9EBA2;
+  --offwhite:#F9F9F7;
+  --text:#1D1D1D;
+  --muted:#6B7280;
+  --border:#E5E7EB;
+}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6;}
+
+/* NAV */
+nav{background:var(--dark);position:sticky;top:0;z-index:100;padding:0 32px;}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:0;height:52px;}
+.nav-logo{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;margin-right:32px;}
+.nav-links{display:flex;gap:0;}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,.45);padding:0 14px;height:52px;display:flex;align-items:center;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-decoration:none;}
+.nav-link:hover{color:rgba(255,255,255,.8);}
+.nav-link.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+/* SECTIONS */
+.section{display:none;max-width:1000px;margin:0 auto;padding:40px 24px;}
+.section.active{display:block;}
+
+/* HERO */
+.hero{background:var(--dark);padding:0;}
+.hero-inner{max-width:1000px;margin:0 auto;padding:48px 24px 40px;}
+.hero-eye{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.hero-title{font-size:40px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:32px;max-width:560px;line-height:1.6;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.hstat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;}
+.hstat-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px;}
+.hstat-val{font-size:24px;font-weight:800;color:var(--accent);letter-spacing:-.02em;line-height:1;}
+.hstat-sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:3px;}
+
+/* PHASE TOGGLE */
+.phase-bar{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:24px;}
+.phase-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.phases{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.phase{border-radius:10px;padding:16px 18px;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.phase.p1{background:rgba(110,221,98,.06);border-color:rgba(110,221,98,.2);}
+.phase.p2{background:rgba(13,51,38,.04);border-color:var(--border);}
+.phase.active{border-color:var(--accent);}
+.phase-num{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+.phase-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.phase-dates{font-size:11px;color:var(--muted);}
+.phase-goal{font-size:11px;color:var(--text);margin-top:6px;line-height:1.4;}
+
+/* CARDS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.card.dark{background:var(--dark);border-color:var(--dark);}
+.card.accent{background:rgba(110,221,98,.07);border-color:rgba(110,221,98,.25);}
+.card-eye{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+.card-eye.muted{color:var(--muted);}
+.card-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.card-title.white{color:#fff;}
+.card-body{font-size:12px;color:var(--muted);line-height:1.6;}
+.card-body.white{color:rgba(255,255,255,.6);}
+.card-val{font-size:28px;font-weight:800;color:var(--accent);letter-spacing:-.02em;line-height:1;margin-bottom:4px;}
+
+/* SEC TITLES */
+.sec-eye{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.sec-title{font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.01em;margin-bottom:6px;}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;max-width:640px;}
+.divider{border:none;border-top:1px solid var(--border);margin:28px 0;}
+
+/* DAY SYSTEM */
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+.day{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 12px;cursor:pointer;transition:all .2s;}
+.day:hover{border-color:var(--green);}
+.day.active{border-color:var(--accent);background:rgba(110,221,98,.05);}
+.day-name{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+.day-task{font-size:12px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:3px;}
+.day-time{font-size:10px;color:var(--muted);}
+.day-detail{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:20px;}
+.dd-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:10px;}
+.dd-items{display:flex;flex-direction:column;gap:8px;}
+.dd-item{display:flex;gap:10px;align-items:flex-start;}
+.dd-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
+.dd-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.dd-text strong{color:var(--text);}
+
+/* HOOK BUILDER */
+.hook-box{background:var(--dark);border-radius:12px;padding:24px;margin-bottom:20px;}
+.hook-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.hook-formula{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.5;}
+.hook-example{font-size:16px;font-weight:700;color:#fff;line-height:1.4;padding:14px 16px;background:rgba(110,221,98,.08);border:1px solid rgba(110,221,98,.2);border-radius:8px;font-style:italic;}
+.hook-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.hchan{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;}
+.hchan-name{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:3px;}
+.hchan-use{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4;}
+
+/* CONTENT TYPES */
+.content-types{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.ct{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.ct-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;}
+.ct-num{font-size:18px;font-weight:800;color:rgba(110,221,98,.25);min-width:28px;}
+.ct-name{font-size:13px;font-weight:700;color:var(--text);flex:1;}
+.ct-freq{font-size:10px;font-weight:600;background:rgba(110,221,98,.1);color:var(--dark);border-radius:99px;padding:2px 8px;}
+.ct-arrow{font-size:14px;color:var(--muted);transition:transform .2s;}
+.ct.open .ct-arrow{transform:rotate(90deg);}
+.ct-body{display:none;padding:0 18px 16px 58px;border-top:1px solid var(--border);}
+.ct.open .ct-body{display:block;}
+.ct-body p{font-size:12px;color:var(--muted);line-height:1.6;margin-top:10px;}
+.ct-body .why{margin-top:8px;padding:8px 12px;background:rgba(110,221,98,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:11px;color:var(--text);}
+
+/* METRICS */
+.met-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
+.met-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+.met-platform{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-bottom:10px;border-bottom:2px solid var(--accent);margin-bottom:12px;}
+.met-item{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);}
+.met-item:last-child{border-bottom:none;}
+.met-name{font-size:12px;color:var(--muted);}
+.met-val{font-size:12px;font-weight:700;color:var(--dark);}
+
+/* UTM */
+.utm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px;}
+.utm-item{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;}
+.utm-canal{font-size:10px;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.utm-code{font-size:10px;font-family:monospace;color:var(--accent);background:rgba(110,221,98,.08);padding:2px 6px;border-radius:4px;}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:20px;}
+.tw{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 8px;text-align:center;}
+.tw.phase1{border-top:3px solid var(--accent);}
+.tw.phase2{border-top:3px solid var(--dark);background:rgba(13,51,38,.04);}
+.tw.launch{border-top:3px solid var(--accent);background:rgba(110,221,98,.08);}
+.tw-week{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.tw-dates{font-size:9px;color:var(--muted);margin-bottom:5px;}
+.tw-haztech{font-size:9px;font-weight:600;color:var(--dark);margin-bottom:3px;}
+.tw-meta{font-size:9px;color:var(--muted);line-height:1.3;}
+
+/* DONT LIST */
+.dont-list{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:20px;}
+.dont-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);}
+.dont-item:last-child{border-bottom:none;}
+.dont-x{width:18px;height:18px;border-radius:50%;background:#FEE2E2;color:#991B1B;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.dont-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.dont-text strong{color:var(--text);}
+
+/* NOTA */
+.nota{border-left:3px solid var(--accent);background:#fff;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--muted);line-height:1.6;}
+.nota strong{color:var(--text);}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;}
+table th{background:var(--dark);color:#fff;font-weight:600;padding:9px 12px;text-align:left;font-size:10px;letter-spacing:.05em;text-transform:uppercase;}
+table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;}
+table tr:last-child td{border-bottom:none;}
+table tr:nth-child(even) td{background:var(--offwhite);}
+.td-acc{color:var(--dark);font-weight:600;}
+
+/* PHASE 2 SPECIFIC */
+.p2-steps{display:flex;flex-direction:column;gap:10px;}
+.p2-step{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:14px;}
+.p2-num{width:32px;height:32px;border-radius:50%;background:var(--dark);color:var(--accent);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p2-content{}
+.p2-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.p2-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+.p2-desc strong{color:var(--text);}
+
+/* FOOTER */
+.site-footer{background:var(--dark);margin-top:48px;padding:24px;text-align:center;}
+.site-footer p{font-size:11px;color:rgba(255,255,255,.3);}
+.site-footer strong{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eye">Estrategia de Contenido · Julio — Agosto 2026</div>
+    <h1 class="hero-title">Aztec Lab — Plan de<br>Contenido y Lanzamiento</h1>
+    <p class="hero-sub">Todo tiene un porqué, un cuándo y un cómo. Cada acción conecta con el único objetivo: personas registradas y calientes el 31 de agosto.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-label">Lanzamiento</div><div class="hstat-val">31 ago</div><div class="hstat-sub">Automatiza tu trabajo con IA</div></div>
+      <div class="hstat"><div class="hstat-label">Fase 1</div><div class="hstat-val">5 sem</div><div class="hstat-sub">13 jul → 16 ago</div></div>
+      <div class="hstat"><div class="hstat-label">Fase 2</div><div class="hstat-val">2 sem</div><div class="hstat-sub">17 ago → 31 ago</div></div>
+      <div class="hstat"><div class="hstat-label">HazTech</div><div class="hstat-val">Mié</div><div class="hstat-sub">7:30pm Colombia · ancla semanal</div></div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">AZTEC</div>
+    <div class="nav-links">
+      <a class="nav-link active" onclick="showSection(&#39;norte&#39;,this)">El Norte</a>
+      <a class="nav-link" onclick="showSection(&#39;sistema&#39;,this)">Sistema Semanal</a>
+      <a class="nav-link" onclick="showSection(&#39;contenido&#39;,this)">Contenido</a>
+      <a class="nav-link" onclick="showSection(&#39;metricas&#39;,this)">Métricas</a>
+      <a class="nav-link" onclick="showSection(&#39;fase2&#39;,this)">Fase 2</a>
+      <a class="nav-link" onclick="showSection(&#39;calendario&#39;,this)">Calendario</a>
+      <a class="nav-link" onclick="showSection(&#39;norules&#39;,this)">No hacer</a>
+    </div>
+  </div>
+</nav>
+
+<!-- NORTE -->
+<div id="norte" class="section active">
+  <div class="sec-eye">El norte</div>
+  <div class="sec-title">Un objetivo. Todo conectado.</div>
+  <div class="sec-sub">Crecer en redes es la consecuencia, no el objetivo. Cuando el contenido tiene un destino claro y un hook que retiene, el algoritmo lo distribuye solo.</div>
+
+  <div class="phase-bar">
+    <div class="phase-title">Las dos fases</div>
+    <div class="phases">
+      <div class="phase p1 active" onclick="togglePhase(this)">
+        <div class="phase-num">Fase 1</div>
+        <div class="phase-name">Calentar y registrar</div>
+        <div class="phase-dates">13 julio → 16 agosto · 5 semanas</div>
+        <div class="phase-goal">Todo el contenido lleva al HazTech del miércoles. Cada semana más registros que la anterior.</div>
+      </div>
+      <div class="phase p2" onclick="togglePhase(this)">
+        <div class="phase-num">Fase 2</div>
+        <div class="phase-name">Captación intensiva</div>
+        <div class="phase-dates">17 agosto → 31 agosto · 2 semanas</div>
+        <div class="phase-goal">Se para el HazTech. Todo apunta al evento del 31. Martín y Salomón calientan grupos todos los días sin excepción.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card dark">
+      <div class="card-eye">Por qué funciona</div>
+      <div class="card-title white">El hook retiene → el algoritmo distribuye → crecen las redes</div>
+      <div class="card-body white">No creces primero y luego consigues registros. Consigues registros y como consecuencia creces. Son la misma acción con dos resultados.</div>
+    </div>
+    <div class="card">
+      <div class="card-eye">El error del último lanzamiento</div>
+      <div class="card-title">12.000 personas. Poca conversión.</div>
+      <div class="card-body">La audiencia llegó fría. Martín y Salomón no calentaron los grupos. La pauta fue 80% del tráfico pero sin calentamiento previo no convirtió. Esta vez no pasa.</div>
+    </div>
+    <div class="card accent">
+      <div class="card-eye">El modelo</div>
+      <div class="card-title">Contenido de valor → HazTech → Registro → Lanzamiento</div>
+      <div class="card-body">Nunca se menciona el precio del curso en redes antes del 31 de agosto. El contenido da valor, el HazTech convierte, el lanzamiento vende.</div>
+    </div>
+  </div>
+
+  <div class="nota"><strong>Referentes aplicados:</strong> Estructura de Mis Propias Finanzas para la máquina de lanzamiento. Filosofía de Nate Herk para el hook (resultado primero, siempre). Filosofía de Hormozi para el valor gratuito masivo antes del carrito.</div>
+</div>
+
+<!-- SISTEMA SEMANAL -->
+<div id="sistema" class="section">
+  <div class="sec-eye">Sistema semanal — Fase 1</div>
+  <div class="sec-title">Cada semana tiene la misma estructura. Sin improvisar.</div>
+  <div class="sec-sub">Haz clic en cada día para ver exactamente qué se hace, quién lo hace y por qué.</div>
+
+  <div class="days">
+    <div class="day" onclick="selectDay(&#39;jue&#39;,this)"><div class="day-name">Jueves</div><div class="day-task">Planear hook y temas</div><div class="day-time">30 min</div></div>
+    <div class="day" onclick="selectDay(&#39;vie&#39;,this)"><div class="day-name">Viernes</div><div class="day-task">Grabar reel + YouTube</div><div class="day-time">3-4 horas</div></div>
+    <div class="day" onclick="selectDay(&#39;dom&#39;,this)"><div class="day-name">Domingo</div><div class="day-task">WhatsApp comunidad</div><div class="day-time">Ya existe</div></div>
+    <div class="day" onclick="selectDay(&#39;lun&#39;,this)"><div class="day-name">Lunes</div><div class="day-task">Publicar reel + YouTube</div><div class="day-time">Programado</div></div>
+    <div class="day" onclick="selectDay(&#39;mar&#39;,this)"><div class="day-name">Martes</div><div class="day-task">Clip OpusClip</div><div class="day-time">Automático</div></div>
+    <div class="day" onclick="selectDay(&#39;mie&#39;,this)"><div class="day-name">Miércoles</div><div class="day-task">HazTech en vivo</div><div class="day-time">7:30pm</div></div>
+    <div class="day active" onclick="selectDay(&#39;vie2&#39;,this)"><div class="day-name">Todos los días</div><div class="day-task">Clips OpusClip diarios</div><div class="day-time">2-3 clips/día</div></div>
+  </div>
+
+  <div class="day-detail" id="day-detail"><div class="dd-title">Todos los días — Clips de OpusClip (motor de volumen)</div><div class="dd-items"><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>2-3 clips diarios</strong> en Instagram, TikTok y YouTube Shorts. Automático.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>No solo del HazTech:</strong> cualquier video del canal con buena retención es material. Un video de 20 minutos puede dar 5 clips buenos.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Los clips y el reel nativo no compiten:</strong> los clips generan volumen y alcance, el reel convierte. Son complementarios.</div></div><div class="dd-item"><div class="dd-dot"></div><div class="dd-text"><strong>Señal de alerta:</strong> si un clip tiene mejor retención que el reel nativo, ese tema es el hook de la semana siguiente.</div></div></div></div>
+
+  <div class="hook-box">
+    <div class="hook-label">Cómo se construye el hook cada semana</div>
+    <div class="hook-formula">Pregunta: ¿cuál es el resultado más impactante que la gente va a ver en el HazTech?<br>Esa respuesta, en una línea, es el hook. Un hook. Todos los canales. Sin variaciones.</div>
+    <div class="hook-example">"Construimos un CRM completo en 40 minutos. Sin código. Sin contratar a nadie."</div>
+    <div class="hook-channels">
+      <div class="hchan"><div class="hchan-name">Reel / TikTok</div><div class="hchan-use">Primeros 3 segundos. Sin saludo, arranca con el resultado.</div></div>
+      <div class="hchan"><div class="hchan-name">YouTube</div><div class="hchan-use">En el thumbnail en texto grande + primeros 30 segundos del video.</div></div>
+      <div class="hchan"><div class="hchan-name">WhatsApp</div><div class="hchan-use">Primera línea del mensaje del domingo y del lunes.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido" class="section">
+  <div class="sec-eye">Los tipos de contenido</div>
+  <div class="sec-title">Tres tipos. Cada uno con un propósito distinto.</div>
+  <div class="sec-sub">Haz clic en cada tipo para ver la estructura exacta y el por qué.</div>
+
+  <div class="content-types">
+    <div class="ct open" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">01</div>
+        <div class="ct-name">Clips de OpusClip — todos los días</div>
+        <div class="ct-freq">2-3 clips/día</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p><strong>Qué es:</strong> fragmentos automáticos de los HazTech y de cualquier video del canal con buena retención. Corren todos los días en Instagram, TikTok y YouTube Shorts.</p>
+        <p><strong>Criterio para elegir el clip:</strong> el momento más concreto e impactante del video. No el más explicado — el más sorprendente.</p>
+        <p><strong>Por qué usar todos los videos del canal, no solo los HazTech:</strong> un video de 20 minutos puede dar 5 clips buenos. Los videos anteriores con buena retención son material inmediato que ya existe y no se está usando.</p>
+        <div class="why">Motor de volumen y alcance. No requiere esfuerzo extra. Mantiene presencia diaria en el feed mientras el contenido de intención convierte.</div>
+      </div>
+    </div>
+    <div class="ct" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">02</div>
+        <div class="ct-name">Reel nativo con hook — lunes</div>
+        <div class="ct-freq">1-2 por semana</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p><strong>Qué es:</strong> Martín o Salomón en cámara. 45-60 segundos. Grabado el viernes, publicado el lunes a las 7pm.</p>
+        <p><strong>Estructura exacta:</strong><br>
+        0-3 seg: el hook. Sin saludo, arranca con el resultado.<br>
+        4-15 seg: el problema de la audiencia conectado con ese resultado.<br>
+        16-45 seg: qué van a aprender en el HazTech, mostrado no explicado.<br>
+        46-60 seg: CTA único — "El miércoles lo hacemos en vivo. Regístrate, link en la bio."</p>
+        <p><strong>Por qué el CTA va al final y no al inicio:</strong> si la persona hace clic y se va antes de ver el video, Instagram lee baja retención y deja de mostrar el video. El CTA al final mantiene la retención alta y el algoritmo impulsa el contenido.</p>
+        <div class="why">Contenido de intención. Atrae gente nueva, genera registros al HazTech, construye autoridad de Martín y Salomón.</div>
+      </div>
+    </div>
+    <div class="ct" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">03</div>
+        <div class="ct-name">Video de YouTube — lunes</div>
+        <div class="ct-freq">1 por semana</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p><strong>Qué es:</strong> video de 10 a 20 minutos. Tutorial específico, caso real con números, comparación de herramientas de IA, o error común con IA. Grabado el viernes junto al reel.</p>
+        <p><strong>Por qué 10-20 minutos y no clases de 1-2 horas:</strong> YouTube premia retención, no duración. Un video de 20 minutos con 60% de retención mueve el canal. Uno de 2 horas con 15% lo hunde. Además, dar el curso completo gratis compite contra el lanzamiento de agosto.</p>
+        <p><strong>Cómo se sube:</strong><br>
+        Thumbnail: hook en texto grande, resultado visible en pantalla.<br>
+        Título: el hook como afirmación. Ej: "Construimos un CRM con IA en 40 minutos (sin código)".<br>
+        Descripción: línea 1 hook, línea 2 qué aprenden, línea 3 link al HazTech con UTM.<br>
+        Endcard últimos 20 seg: link al registro del próximo HazTech.</p>
+        <div class="why">El link de registro va en el endcard, nunca al inicio. Si va al inicio la gente hace clic y se va — YouTube lee baja retención y deja de recomendar el video.</div>
+      </div>
+    </div>
+    <div class="ct" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">04</div>
+        <div class="ct-name">HazTech en vivo — miércoles</div>
+        <div class="ct-freq">Cada miércoles 7:30pm</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p><strong>Antes del en vivo (6pm):</strong> historia en Instagram recordando la clase con el link de registro.</p>
+        <p><strong>Durante el en vivo:</strong> identificar el momento más impactante de la clase. Ese momento es el hook de la semana siguiente.</p>
+        <p><strong>Después del en vivo:</strong> subir el video completo a YouTube esa misma noche con thumbnail y título que usen el hook de la semana.</p>
+        <div class="why">El ancla de todo el sistema. Todo el contenido de la semana existe para llevar gente registrada aquí.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-eye">Facebook</div>
+  <div class="nota"><strong>Facebook:</strong> se republica lo mismo de Instagram automáticamente vía Metricool. No se crea contenido nativo para Facebook. No vale la pena el esfuerzo ahora — primero consolidar Instagram y TikTok.</div>
+</div>
+
+<!-- MÉTRICAS -->
+<div id="metricas" class="section">
+  <div class="sec-eye">Métricas</div>
+  <div class="sec-title">Medimos lo que convierte, no lo que se ve bonito.</div>
+  <div class="sec-sub">Revisión todos los jueves en 30 minutos. El número que mide si todo el sistema funciona: registros al HazTech por semana vs la semana anterior.</div>
+
+  <div class="met-grid">
+    <div class="met-card">
+      <div class="met-platform">YouTube</div>
+      <div class="met-item"><span class="met-name">CTR del thumbnail</span><span class="met-val">Meta: mínimo 4%</span></div>
+      <div class="met-item"><span class="met-name">Retención promedio</span><span class="met-val">Meta: mínimo 40%</span></div>
+      <div class="met-item"><span class="met-name">Registros desde endcard</span><span class="met-val">UTM: aztec-youtube</span></div>
+      <div class="nota" style="margin-top:10px;margin-bottom:0;">Si el CTR está por debajo del 4%, el thumbnail falló. Si la retención está por debajo del 40%, el hook de los primeros 30 segundos falló.</div>
+    </div>
+    <div class="met-card">
+      <div class="met-platform">Instagram</div>
+      <div class="met-item"><span class="met-name">Guardados por reel</span><span class="met-val">Meta: mínimo 50</span></div>
+      <div class="met-item"><span class="met-name">Seguidores nuevos/semana</span><span class="met-val">Meta: +200/semana</span></div>
+      <div class="met-item"><span class="met-name">Retención del reel</span><span class="met-val">Meta: mínimo 40%</span></div>
+      <div class="met-item"><span class="met-name">Registros desde bio</span><span class="met-val">UTM: aztec-instagram</span></div>
+    </div>
+    <div class="met-card">
+      <div class="met-platform">TikTok</div>
+      <div class="met-item"><span class="met-name">Retención promedio</span><span class="met-val">Meta: mínimo 40%</span></div>
+      <div class="met-item"><span class="met-name">Seguidores nuevos</span><span class="met-val">1.000 antes 31 jul</span></div>
+      <div class="met-item"><span class="met-name">Vistas primeras 24h</span><span class="met-val">Si no despega, hook falló</span></div>
+      <div class="met-item"><span class="met-name">Registros desde bio</span><span class="met-val">UTM: aztec-tiktok</span></div>
+    </div>
+    <div class="met-card">
+      <div class="met-platform">WhatsApp</div>
+      <div class="met-item"><span class="met-name">Tasa de lectura</span><span class="met-val">Meta: mínimo 40%</span></div>
+      <div class="met-item"><span class="met-name">Registros desde link</span><span class="met-val">UTM: aztec-whatsapp</span></div>
+      <div class="met-item"><span class="met-name">Salidas por mensaje</span><span class="met-val">Si suben, copy falló</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-eye">UTM por canal</div>
+  <div class="sec-title">Saber de dónde viene cada registro.</div>
+  <div class="sec-sub">Una UTM diferente por canal. Todos llevan al mismo registro. Sin UTM no sabes qué funciona y qué no.</div>
+
+  <div class="utm-grid">
+    <div class="utm-item"><div class="utm-canal">Instagram bio</div><div class="utm-code">aztec-instagram</div></div>
+    <div class="utm-item"><div class="utm-canal">TikTok bio</div><div class="utm-code">aztec-tiktok</div></div>
+    <div class="utm-item"><div class="utm-canal">YouTube endcard</div><div class="utm-code">aztec-youtube</div></div>
+    <div class="utm-item"><div class="utm-canal">WhatsApp</div><div class="utm-code">aztec-whatsapp</div></div>
+    <div class="utm-item"><div class="utm-canal">Pauta Meta</div><div class="utm-code">aztec-pauta</div></div>
+  </div>
+</div>
+
+<!-- FASE 2 -->
+<div id="fase2" class="section">
+  <div class="sec-eye">Fase 2 — Captación intensiva</div>
+  <div class="sec-title">17 al 31 de agosto. Todo apunta al lanzamiento.</div>
+  <div class="sec-sub">Dos semanas donde todo cambia. El HazTech se para. La pauta arranca. Martín y Salomón calientan los grupos todos los días. Sin excepción.</div>
+
+  <div class="card dark" style="margin-bottom:20px;">
+    <div class="card-eye">El anuncio — miércoles 13 de agosto</div>
+    <div class="card-title white">Último HazTech antes del lanzamiento</div>
+    <div class="card-body white" style="margin-top:8px;font-size:14px;font-style:italic;line-height:1.6;">"Este fue el último HazTech antes de algo diferente. El 31 de agosto vamos a hacer una clase que no hemos hecho nunca. No es un HazTech normal. Regístrate ahora porque los cupos son limitados. El link está aquí."</div>
+  </div>
+
+  <div class="p2-steps">
+    <div class="p2-step">
+      <div class="p2-num">1</div>
+      <div class="p2-content">
+        <div class="p2-title">El contenido cambia de destino</div>
+        <div class="p2-desc">El reel del lunes ya no invita al HazTech. Invita al evento del 31 de agosto. Los clips de OpusClip siguen corriendo todos los días con diferente CTA en el caption. <strong>Mismo sistema, diferente destino.</strong></div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">2</div>
+      <div class="p2-content">
+        <div class="p2-title">La pauta arranca el 17 de agosto</div>
+        <div class="p2-desc"><strong>Primeros 5 días:</strong> solo públicos fríos. <strong>A los 5 días:</strong> se suman calientes y tibios. Nunca al mismo tiempo desde el inicio — se termina pagando por registros que habrían llegado gratis por orgánico. Lección aprendida de Mis Propias Finanzas.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">3</div>
+      <div class="p2-content">
+        <div class="p2-title">Registro automático a grupos de WhatsApp</div>
+        <div class="p2-desc">Cada persona que se registra al evento del 31 entra automáticamente a un grupo de WhatsApp. <strong>Esto es el activo más valioso:</strong> nombre, teléfono y correo. Con esos tres datos se puede hacer pauta, email y WhatsApp directo.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">4</div>
+      <div class="p2-content">
+        <div class="p2-title">Martín y Salomón en los grupos — todos los días</div>
+        <div class="p2-desc">Escriben en los grupos desde el 17 hasta el 31. <strong>No es negociable.</strong> Esto es exactamente lo que no pasó en el último lanzamiento y fue la causa principal de la baja conversión. En los grupos no se vende — se da valor: casos reales, herramientas, respuestas a preguntas.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">5</div>
+      <div class="p2-content">
+        <div class="p2-title">Día del lanzamiento — 31 de agosto</div>
+        <div class="p2-desc">Dos mensajes de WhatsApp: uno al terminar la clase, uno antes de las 10:30pm. <strong>Nada más ese día.</strong> Más mensajes no significa más ventas — el exceso quema la lista.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDARIO -->
+<div id="calendario" class="section">
+  <div class="sec-eye">Calendario</div>
+  <div class="sec-title">7 semanas. Cada una con su norte claro.</div>
+  <div class="sec-sub">Las semanas 6 y 7 no tienen video largo de YouTube ni HazTech normal — toda la energía va al lanzamiento.</div>
+
+  <table>
+    <tbody><tr>
+      <th>Semana</th>
+      <th>Fechas</th>
+      <th>HazTech</th>
+      <th>Video YouTube</th>
+      <th>Meta principal</th>
+    </tr>
+    <tr>
+      <td class="td-acc">Semana 1</td>
+      <td>13–19 jul</td>
+      <td>CRM completo con IA</td>
+      <td>Tutorial herramienta de IA</td>
+      <td>Lanzar el sistema completo por primera vez</td>
+    </tr>
+    <tr>
+      <td class="td-acc">Semana 2</td>
+      <td>20–26 jul</td>
+      <td>Por definir jueves 17</td>
+      <td>Por definir jueves 17</td>
+      <td>Equipo con la rutina clara y ejecutada</td>
+    </tr>
+    <tr>
+      <td class="td-acc">Semana 3</td>
+      <td>27 jul–2 ago</td>
+      <td>Por definir jueves 24</td>
+      <td>Por definir jueves 24</td>
+      <td>TikTok llega a 1.000 seguidores</td>
+    </tr>
+    <tr>
+      <td class="td-acc">Semana 4</td>
+      <td>3–9 ago</td>
+      <td>Por definir jueves 31 jul</td>
+      <td>Por definir jueves 31 jul</td>
+      <td>Registros semanales en máximo histórico</td>
+    </tr>
+    <tr>
+      <td class="td-acc">Semana 5</td>
+      <td>10–16 ago</td>
+      <td>Último HazTech — anunciar 31 ago</td>
+      <td>Por definir</td>
+      <td>Anunciar el evento, llenar primeros grupos</td>
+    </tr>
+    <tr>
+      <td class="td-acc" style="color:#6EDD62;">Semana 6</td>
+      <td>17–23 ago</td>
+      <td>— Captación —</td>
+      <td>Sin video largo</td>
+      <td>Pauta arranca, grupos llenos y calentando</td>
+    </tr>
+    <tr>
+      <td class="td-acc" style="color:#6EDD62;">Semana 7</td>
+      <td>24–31 ago</td>
+      <td>— Lanzamiento —</td>
+      <td>Sin video largo</td>
+      <td>Grupos calientes todos los días · 31 ago evento</td>
+    </tr>
+  </tbody></table>
+</div>
+
+<!-- NO HACER -->
+<div id="norules" class="section">
+  <div class="sec-eye">Lo que no se hace</div>
+  <div class="sec-title">Tan importante como lo que sí se hace.</div>
+  <div class="sec-sub">Cada punto tiene un porqué basado en errores reales — del último lanzamiento de Aztec o de lo que aprendimos de Mis Propias Finanzas.</div>
+
+  <div class="dont-list">
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se menciona el precio del curso antes del 31 de agosto.</strong> El contenido da valor, el HazTech convierte, el lanzamiento vende. En ese orden.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se suben clases de 1-2 horas a YouTube.</strong> Destruye la retención del canal y regala el contenido del curso que se va a vender en agosto.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se pone el link de registro al inicio de los videos de YouTube.</strong> Si la persona hace clic y se va, YouTube lee baja retención y deja de recomendar el video. El link va en el endcard.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se crea contenido nativo para Facebook.</strong> Se republica lo de Instagram automáticamente vía Metricool. El esfuerzo va a Instagram y TikTok primero.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se mandan más de 2 mensajes de WhatsApp por día en Fase 2.</strong> Más mensajes no significa más ventas. El exceso quema la lista y baja la tasa de lectura.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se construye la secuencia de emails ahora.</strong> Va después del lanzamiento cuando haya tiempo para hacerlo bien. Antes de agosto no es prioridad.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>Martín y Salomón no se pueden relajar en los grupos durante Fase 2.</strong> Esto fue exactamente lo que tumbó el último lanzamiento. Es el trabajo más importante de esas dos semanas.</div></div>
+    <div class="dont-item"><div class="dont-x">✕</div><div class="dont-text"><strong>No se arranca la pauta con todos los públicos al mismo tiempo.</strong> Primero fríos 5 días, luego se suman calientes y tibios. Si no, se paga por registros que habrían llegado gratis.</div></div>
+  </div>
+</div>
+
+<div class="site-footer">
+  <p>Aztec Lab · Estrategia de Contenido 2026 · Construida por <strong>Juan Esteban Gaitán</strong> · julio 2026</p>
+</div>
+
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+const dayData = {
+  jue: {
+    title: 'Jueves — Planear el hook y los temas (30 minutos)',
+    items: [
+      '<strong>Juanes, Martín y Salomón</strong> definen el tema del HazTech del próximo miércoles.',
+      '<strong>Definen el tema del video de YouTube</strong> de esa semana (puede ser diferente al HazTech).',
+      '<strong>Escriben el hook de la semana:</strong> una frase con el resultado más impactante del HazTech. Esa frase va igual en el reel, en YouTube y en WhatsApp.',
+      '<strong>Responsable:</strong> Juanes coordina, los tres aprueban en máximo 30 minutos.'
+    ]
+  },
+  vie: {
+    title: 'Viernes — Grabar reel y video de YouTube (mismo set, mismo día)',
+    items: [
+      '<strong>Reel nativo (45-60 seg):</strong> 0-3 seg hook, 4-15 seg problema, 16-45 seg qué aprenden en HazTech, 46-60 seg CTA al HazTech.',
+      '<strong>Video de YouTube (10-20 min):</strong> tutorial específico, caso real con números, o comparación de herramientas. Hook en los primeros 30 segundos.',
+      '<strong>Por qué mismo día:</strong> mismo set, misma energía, sin doblar el esfuerzo de producción.',
+      '<strong>Responsable:</strong> Martín o Salomón graba, Juanes edita ese mismo viernes y programa en Metricool.'
+    ]
+  },
+  dom: {
+    title: 'Domingo — Mensaje a los grupos de WhatsApp (ya existe)',
+    items: [
+      '<strong>Ya se hace y se mantiene.</strong> Solo se ajusta el copy: el mensaje arranca con el hook de la semana.',
+      '<strong>Antes:</strong> "Este miércoles tenemos HazTech, regístrate aquí."',
+      '<strong>Ahora:</strong> "Construimos un CRM en 40 minutos sin código. Te mostramos cómo este miércoles. Gratis. Link abajo."',
+      '<strong>Por qué:</strong> el hook detiene la lectura igual que detiene el scroll.'
+    ]
+  },
+  lun: {
+    title: 'Lunes — Publicar reel y video de YouTube',
+    items: [
+      '<strong>Reel nativo</strong> en Instagram y TikTok a las 7pm Colombia.',
+      '<strong>Video de YouTube</strong> publicado ese mismo día con thumbnail que usa el hook.',
+      '<strong>Caption:</strong> tres líneas. Primera repite el hook. Segunda da contexto. Tercera: link en la bio.',
+      '<strong>Segundo mensaje WhatsApp</strong> reforzando el HazTech — ya existe, se mantiene con el hook al inicio.',
+      '<strong>Responsable:</strong> Juanes programa todo en Metricool el viernes.'
+    ]
+  },
+  mar: {
+    title: 'Martes — Clip de OpusClip',
+    items: [
+      '<strong>Un clip</strong> del HazTech anterior o de cualquier video del canal con buena retención.',
+      '<strong>Criterio:</strong> el momento más concreto e impactante, no el más explicado.',
+      '<strong>Canales:</strong> Instagram Reels, TikTok y YouTube Shorts.',
+      '<strong>Responsable:</strong> OpusClip procesa, Juanes elige el mejor clip y lo programa.'
+    ]
+  },
+  mie: {
+    title: 'Miércoles — HazTech en vivo (7:30pm Colombia)',
+    items: [
+      '<strong>6pm:</strong> historia en Instagram recordando la clase con link de registro.',
+      '<strong>Durante el en vivo:</strong> identificar el momento más impactante. Ese es el hook de la semana siguiente.',
+      '<strong>Esa noche:</strong> subir el video completo a YouTube con thumbnail y título que usen el hook de la semana.',
+      '<strong>Responsable:</strong> equipo técnico el en vivo, Juanes sube a YouTube.'
+    ]
+  },
+  vie2: {
+    title: 'Todos los días — Clips de OpusClip (motor de volumen)',
+    items: [
+      '<strong>2-3 clips diarios</strong> en Instagram, TikTok y YouTube Shorts. Automático.',
+      '<strong>No solo del HazTech:</strong> cualquier video del canal con buena retención es material. Un video de 20 minutos puede dar 5 clips buenos.',
+      '<strong>Los clips y el reel nativo no compiten:</strong> los clips generan volumen y alcance, el reel convierte. Son complementarios.',
+      '<strong>Señal de alerta:</strong> si un clip tiene mejor retención que el reel nativo, ese tema es el hook de la semana siguiente.'
+    ]
+  }
+};
+
+function selectDay(key, el) {
+  document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
+  el.classList.add('active');
+  const data = dayData[key];
+  const detail = document.getElementById('day-detail');
+  detail.innerHTML = `<div class="dd-title">${data.title}</div><div class="dd-items">${data.items.map(i => `<div class="dd-item"><div class="dd-dot"></div><div class="dd-text">${i}</div></div>`).join('')}</div>`;
+}
+
+function toggleCT(el) {
+  el.classList.toggle('open');
+}
+
+function togglePhase(el) {
+  document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+
+selectDay('lun', document.querySelectorAll('.day')[3]);
+</script>
+
+
+</body></html>
