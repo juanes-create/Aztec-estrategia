@@ -234,6 +234,7 @@ table tr:nth-child(even) td{background:var(--offwhite);}
       <a class="nav-link active" onclick="showSection('norte',this)">El Norte</a>
       <a class="nav-link" onclick="showSection('sistema',this)">Sistema Semanal</a>
       <a class="nav-link" onclick="showSection('contenido',this)">Contenido</a>
+      <a class="nav-link" onclick="showSection('historias',this)">Historias</a>
       <a class="nav-link" onclick="showSection('metricas',this)">Métricas</a>
       <a class="nav-link" onclick="showSection('fase2',this)">Fase 2</a>
       <a class="nav-link" onclick="showSection('calendario',this)">Calendario</a>
@@ -279,12 +280,48 @@ table tr:nth-child(even) td{background:var(--offwhite);}
     </div>
     <div class="card accent">
       <div class="card-eye">El modelo</div>
-      <div class="card-title">Contenido de valor → HazTech → Registro → Lanzamiento</div>
-      <div class="card-body">Nunca se menciona el precio del curso en redes antes del 31 de agosto. El contenido da valor, el HazTech convierte, el lanzamiento vende.</div>
+      <div class="card-title">Alcance → Captura → Base de datos → Conversión</div>
+      <div class="card-body">El contenido trae gente fría. La historia con descargable la captura en una base de datos. WhatsApp y correo la calientan. El HazTech y el lanzamiento la convierten. Nunca se menciona el precio antes del 31 de agosto.</div>
     </div>
   </div>
 
-  <div class="nota"><strong>Referentes aplicados:</strong> Estructura de Mis Propias Finanzas para la máquina de lanzamiento. Filosofía de Nate Herk para el hook (resultado primero, siempre). Filosofía de Hormozi para el valor gratuito masivo antes del carrito.</div>
+  <div class="sec-eye" style="margin-top:32px;">El embudo completo</div>
+  <div class="sec-title" style="font-size:20px;">De seguidor frío a cliente. Paso por paso.</div>
+  <div class="sec-sub">El paso que faltaba en la estrategia anterior: capturar al seguidor frío en una base de datos y calentarlo antes de venderle. Sin este paso, la gente llega fría al lanzamiento y no convierte. Aprendizaje directo de Mis Propias Finanzas.</div>
+
+  <div style="display:flex;flex-direction:column;gap:0;margin-bottom:20px;">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">1 · Alcance</div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">Clips de OpusClip + Reels</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Traen gente nueva pero <strong>fría</strong>. Te siguen, pero no te conocen ni confían todavía.</div>
+    </div>
+    <div style="text-align:center;color:var(--accent);font-size:18px;line-height:1;padding:6px 0;">↓</div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">2 · Captura</div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">Historia diaria + descargable</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">"Comenta la palabra X." El seguidor frío deja su dato a cambio de valor gratis.</div>
+    </div>
+    <div style="text-align:center;color:var(--accent);font-size:18px;line-height:1;padding:6px 0;">↓</div>
+    <div style="background:var(--dark);border:1px solid var(--dark);border-radius:12px;padding:16px 18px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">3 · Base de datos</div>
+      <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;">Nombre · correo · WhatsApp</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5;">El activo más valioso. Con estos tres datos puedes hacer pauta, correo y WhatsApp directo.</div>
+    </div>
+    <div style="text-align:center;color:var(--accent);font-size:18px;line-height:1;padding:6px 0;">↓</div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">4 · Calentamiento</div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">WhatsApp + correo + más valor gratis</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Deja de ser frío. Se vuelve tibio. Empieza a confiar. Es mucho más fácil venderle a alguien tibio que a un frío.</div>
+    </div>
+    <div style="text-align:center;color:var(--accent);font-size:18px;line-height:1;padding:6px 0;">↓</div>
+    <div style="background:rgba(110,221,98,.07);border:1px solid rgba(110,221,98,.25);border-radius:12px;padding:16px 18px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);margin-bottom:4px;">5 · Conversión</div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">HazTech (Fase 1) → Lanzamiento 31 ago (Fase 2)</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Ya caliente, la persona convierte. El HazTech vende cada semana; el lanzamiento del 31 cierra.</div>
+    </div>
+  </div>
+
+  <div class="nota"><strong>Referentes aplicados:</strong> Estructura de Mis Propias Finanzas para la máquina de lanzamiento y el embudo de captura por historias. Filosofía de Nate Herk para el hook (resultado primero, siempre). Filosofía de Hormozi para el valor gratuito masivo antes del carrito.</div>
 </div>
 
 <!-- SISTEMA SEMANAL -->
@@ -344,7 +381,8 @@ table tr:nth-child(even) td{background:var(--offwhite);}
         <p><strong>Qué es:</strong> fragmentos automáticos de los HazTech y de cualquier video del canal con buena retención. Corren todos los días en Instagram, TikTok y YouTube Shorts.</p>
         <p><strong>Criterio para elegir el clip:</strong> el momento más concreto e impactante del video. No el más explicado — el más sorprendente.</p>
         <p><strong>Por qué usar todos los videos del canal, no solo los HazTech:</strong> un video de 20 minutos puede dar 5 clips buenos. Los videos anteriores con buena retención son material inmediato que ya existe y no se está usando.</p>
-        <div class="why">Motor de volumen y alcance. No requiere esfuerzo extra. Mantiene presencia diaria en el feed mientras el contenido de intención convierte.</div>
+        <p><strong>Pantalla final (endcard) en cada clip:</strong> el clip nunca termina en seco. Siempre manda a otra cosa: "comenta la palabra X y te mando el descargable", o al video largo de YouTube. Así la persona sigue conectada más tiempo y no depende de que Salomón o Martín graben algo nuevo. Aprendizaje de Mis Propias Finanzas.</p>
+        <div class="why">Motor de volumen y alcance. No requiere esfuerzo extra. Mantiene presencia diaria en el feed mientras el contenido de intención convierte. Con el endcard, además, cada clip alimenta la base de datos.</div>
       </div>
     </div>
     <div class="ct" onclick="toggleCT(this)">
@@ -401,15 +439,97 @@ table tr:nth-child(even) td{background:var(--offwhite);}
 
   <hr class="divider">
 
+  <div class="hook-box">
+    <div class="hook-label">La temporalidad — el gatillo que activa a la gente</div>
+    <div class="hook-formula">Ponerle fecha o momento al hook hace que la persona sienta que lo que va a aprender lo va a usar HOY, no algún día. Le activa un gatillo de urgencia sin sonar a venta. Aprendizaje de Mis Propias Finanzas — a ellos les funciona demasiado.</div>
+    <div class="hook-example">"Las 3 automatizaciones que tienes que montar antes de que acabe 2026."</div>
+    <div class="hook-channels">
+      <div class="hchan"><div class="hchan-name">Con momento</div><div class="hchan-use">"Vale la pena aprender IA en el segundo semestre de 2026."</div></div>
+      <div class="hchan"><div class="hchan-name">Con fecha límite</div><div class="hchan-use">"Lo que tienes que automatizar antes de que acabe el año."</div></div>
+      <div class="hchan"><div class="hchan-name">Con contexto actual</div><div class="hchan-use">"La herramienta de IA que todos van a usar este semestre."</div></div>
+    </div>
+  </div>
+  <div class="nota"><strong>La regla de oro del marketing que confirmó Mis Propias Finanzas:</strong> lo que funciona, se replica hasta que deje de funcionar. Si un hook pega, se lleva a reel, carrusel, historia y video de YouTube. Y se replica en otros temas manteniendo la misma estructura.</div>
+
+  <hr class="divider">
+
   <div class="sec-eye">Facebook</div>
   <div class="nota"><strong>Facebook:</strong> se republica lo mismo de Instagram automáticamente vía Metricool. No se crea contenido nativo para Facebook. No vale la pena el esfuerzo ahora — primero consolidar Instagram y TikTok.</div>
+</div>
+
+<!-- HISTORIAS -->
+<div id="historias" class="section">
+  <div class="sec-eye">Historias de Instagram</div>
+  <div class="sec-title">El canal que más convierte. Todos los días. Sin falta.</div>
+  <div class="sec-sub">Las historias las ve tu público más caliente — la gente que ya te conoce. Instagram las ordena por cercanía e interacción, no por alcance. Por eso convierten mejor que los reels: no es tráfico frío, es gente que ya confía en ti. Aprendizaje directo de Mis Propias Finanzas, su mejor canal de registros.</div>
+
+  <div class="hook-box">
+    <div class="hook-label">La estructura de 3 historias — se repite cada día</div>
+    <div class="hook-formula">No es improvisar. Es un molde de tres pasos: enganchar, tocar el dolor, y mandar a la acción. Se arma en la reunión del jueves reciclando el hook de la semana.</div>
+    <div class="hook-channels">
+      <div class="hchan"><div class="hchan-name">Historia 1 — Hook + interacción</div><div class="hchan-use">Un hook que ya funcionó en reel, puesto como afirmación. Con encuesta, quiz o pregunta al inicio. La interacción es la señal más fuerte para el algoritmo.</div></div>
+      <div class="hchan"><div class="hchan-name">Historia 2 — El dolor o la ventaja</div><div class="hchan-use">El ROAR en palabras grandes. Lo que la persona pierde por no actuar, o gana por hacerlo.</div></div>
+      <div class="hchan"><div class="hchan-name">Historia 3 — CTA al descargable</div><div class="hchan-use">"Comenta la palabra X y te mando el descargable." Ahí es donde capturas el dato y calientas al seguidor frío.</div></div>
+    </div>
+  </div>
+
+  <div class="hook-box" style="background:rgba(110,221,98,.07);border:1px solid rgba(110,221,98,.25);">
+    <div class="hook-label" style="color:var(--dark);">Ejemplo aterrizado a Aztec</div>
+    <div class="hook-example" style="background:#fff;border-color:var(--border);color:var(--text);">"La IA no te va a dejar sin trabajo. Una persona que sabe usarla, a ti sí."</div>
+    <div class="hook-channels">
+      <div class="hchan" style="background:#fff;border-color:var(--border);"><div class="hchan-name" style="color:var(--muted);">H1</div><div class="hchan-use" style="color:var(--text);">Encuesta: "¿Ya usas IA en tu trabajo o todavía la ves de lejos?" [Sí / Todavía no]</div></div>
+      <div class="hchan" style="background:#fff;border-color:var(--border);"><div class="hchan-name" style="color:var(--muted);">H2</div><div class="hchan-use" style="color:var(--text);">"Si aún no la usas, estás perdiendo horas cada semana que no vuelven."</div></div>
+      <div class="hchan" style="background:#fff;border-color:var(--border);"><div class="hchan-name" style="color:var(--muted);">H3</div><div class="hchan-use" style="color:var(--text);">"Comenta AZTEC y te mando los 10 prompts que usamos para automatizar tareas."</div></div>
+    </div>
+  </div>
+
+  <div class="sec-eye" style="margin-top:28px;">Rotación semanal</div>
+  <div class="sec-title" style="font-size:18px;">No siempre "comenta X". Se rota el mecanismo para no cansar.</div>
+  <div class="days" style="margin-top:16px;">
+    <div class="day"><div class="day-name">Lun / Jue</div><div class="day-task">Encuesta</div><div class="day-time">Sí / No</div></div>
+    <div class="day"><div class="day-name">Viernes</div><div class="day-task">Caja de preguntas</div><div class="day-time">Da ideas + calienta</div></div>
+    <div class="day"><div class="day-name">Sáb / Mar</div><div class="day-task">Descargable</div><div class="day-time">"Comenta X"</div></div>
+    <div class="day"><div class="day-name">Dom / Mié</div><div class="day-task">Recordatorio</div><div class="day-time">HazTech</div></div>
+  </div>
+  <div class="nota" style="margin-top:16px;"><strong>La lógica:</strong> unos días capturas datos, otros días generas interacción, otros recuerdas el HazTech. Nunca es la misma vaina repetida — así el público no se cansa y cada día tiene un propósito.</div>
+
+  <hr class="divider">
+
+  <div class="content-types">
+    <div class="ct" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">!</div>
+        <div class="ct-name">Por qué las historias calientan al seguidor frío</div>
+        <div class="ct-freq">clave</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p>La mayoría de tus seguidores llegaron por un clip o un reel que se viralizó. Están <strong>fríos</strong>: te siguen pero no te conocen ni confían todavía. Meterlos directo a un lanzamiento no funciona — se registran gratis o no compran.</p>
+        <p>La historia diaria, con su descargable, los va calentando: comentan la palabra, reciben valor gratis, entran a tu base de datos, y para el lanzamiento ya son gente medio caliente. <strong>Es mucho más fácil venderle a alguien tibio que a un frío.</strong></p>
+        <div class="why">Regla de Hormozi confirmada por Mis Propias Finanzas: da tanto valor gratis que cuando paguen, se sorprendan de lo bueno que fue lo gratis.</div>
+      </div>
+    </div>
+    <div class="ct" onclick="toggleCT(this)">
+      <div class="ct-head">
+        <div class="ct-num">!</div>
+        <div class="ct-name">El hábito importa más que la perfección</div>
+        <div class="ct-freq">expectativa</div>
+        <div class="ct-arrow">›</div>
+      </div>
+      <div class="ct-body">
+        <p>Las primeras 2-3 semanas los números van a ser bajitos. <strong>Eso no significa que falle</strong> — significa que apenas estás entrenando a tu audiencia a esperar historias tuyas.</p>
+        <p>No dejar pasar un solo día sin historia. Mis Propias Finanzas llegó a que su mejor canal de conversión fueran las historias justamente por la constancia, no por un truco.</p>
+        <div class="why">El objetivo del primer mes no es convertir — es construir el hábito y aprender qué mecanismo de interacción funciona con la audiencia de Aztec.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- MÉTRICAS -->
 <div id="metricas" class="section">
   <div class="sec-eye">Métricas</div>
   <div class="sec-title">Medimos lo que convierte, no lo que se ve bonito.</div>
-  <div class="sec-sub">Revisión todos los jueves en 30 minutos. El número que mide si todo el sistema funciona: registros al HazTech por semana vs la semana anterior.</div>
+  <div class="sec-sub">Revisión todos los jueves en 30 minutos. Los dos números que miden si todo el sistema funciona: <strong>registros al HazTech</strong> por semana, y <strong>datos capturados por el descargable</strong> — ambos comparados contra la semana anterior. Uno mide conversión; el otro mide cuánta base de datos estás construyendo para el lanzamiento.</div>
 
   <div class="met-grid">
     <div class="met-card">
@@ -438,6 +558,14 @@ table tr:nth-child(even) td{background:var(--offwhite);}
       <div class="met-item"><span class="met-name">Tasa de lectura</span><span class="met-val">Meta: mínimo 40%</span></div>
       <div class="met-item"><span class="met-name">Registros desde link</span><span class="met-val">UTM: aztec-whatsapp</span></div>
       <div class="met-item"><span class="met-name">Salidas por mensaje</span><span class="met-val">Si suben, copy falló</span></div>
+    </div>
+    <div class="met-card">
+      <div class="met-platform">Historias</div>
+      <div class="met-item"><span class="met-name">Datos capturados / semana</span><span class="met-val">El número que llena la base</span></div>
+      <div class="met-item"><span class="met-name">Respuestas por historia</span><span class="met-val">Encuestas, quiz, cajas</span></div>
+      <div class="met-item"><span class="met-name">Retención de la secuencia</span><span class="met-val">% que llega a la historia 3</span></div>
+      <div class="met-item"><span class="met-name">Salidas por historia</span><span class="met-val">Si suben, cansaste</span></div>
+      <div class="nota" style="margin-top:10px;margin-bottom:0;">El canal que más convierte de Mis Propias Finanzas. Si nadie responde las historias, el hook o el mecanismo de interacción está fallando.</div>
     </div>
   </div>
 
@@ -473,35 +601,56 @@ table tr:nth-child(even) td{background:var(--offwhite);}
       <div class="p2-num">1</div>
       <div class="p2-content">
         <div class="p2-title">El contenido cambia de destino</div>
-        <div class="p2-desc">El reel del lunes ya no invita al HazTech. Invita al evento del 31 de agosto. Los clips de OpusClip siguen corriendo todos los días con diferente CTA en el caption. <strong>Mismo sistema, diferente destino.</strong></div>
+        <div class="p2-desc">El reel del lunes ya no invita al HazTech. Invita al evento del 31 de agosto. Los clips de OpusClip siguen corriendo todos los días con diferente CTA en el caption. Las historias también cambian de destino. <strong>Mismo sistema, diferente destino.</strong></div>
       </div>
     </div>
     <div class="p2-step">
       <div class="p2-num">2</div>
       <div class="p2-content">
-        <div class="p2-title">La pauta arranca el 17 de agosto</div>
-        <div class="p2-desc"><strong>Primeros 5 días:</strong> solo públicos fríos. <strong>A los 5 días:</strong> se suman calientes y tibios. Nunca al mismo tiempo desde el inicio — se termina pagando por registros que habrían llegado gratis por orgánico. Lección aprendida de Mis Propias Finanzas.</div>
+        <div class="p2-title">Captación de audiencias — antes de invitar a la clase</div>
+        <div class="p2-desc">Dos semanas antes, la pauta no invita a la clase todavía. Primero <strong>captación de audiencia:</strong> se ofrece el descargable para que la gente deje sus datos y entre a la base de datos. Así llegas al lanzamiento con un público que ya te conoce, que es mucho más fácil de convertir. Lección de Mis Propias Finanzas.</div>
       </div>
     </div>
     <div class="p2-step">
       <div class="p2-num">3</div>
+      <div class="p2-content">
+        <div class="p2-title">La pauta arranca — frío primero, caliente después</div>
+        <div class="p2-desc"><strong>Primeros 5 días:</strong> solo públicos fríos. <strong>A los 5 días:</strong> se suman calientes y tibios. Nunca al mismo tiempo desde el inicio — si arrancas con caliente, canibalizas los registros que habrían llegado gratis por reel o historia. Ese fue el error de Mis Propias Finanzas en su último lanzamiento.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">4</div>
       <div class="p2-content">
         <div class="p2-title">Registro automático a grupos de WhatsApp</div>
         <div class="p2-desc">Cada persona que se registra al evento del 31 entra automáticamente a un grupo de WhatsApp. <strong>Esto es el activo más valioso:</strong> nombre, teléfono y correo. Con esos tres datos se puede hacer pauta, email y WhatsApp directo.</div>
       </div>
     </div>
     <div class="p2-step">
-      <div class="p2-num">4</div>
+      <div class="p2-num">5</div>
       <div class="p2-content">
         <div class="p2-title">Martín y Salomón en los grupos — todos los días</div>
-        <div class="p2-desc">Escriben en los grupos desde el 17 hasta el 31. <strong>No es negociable.</strong> Esto es exactamente lo que no pasó en el último lanzamiento y fue la causa principal de la baja conversión. En los grupos no se vende — se da valor: casos reales, herramientas, respuestas a preguntas.</div>
+        <div class="p2-desc">Escriben en los grupos desde el 17 hasta el 31. <strong>No es negociable.</strong> Esto es exactamente lo que no pasó en el último lanzamiento y fue la causa principal de la baja conversión. En los grupos no se vende — se da valor: casos reales, herramientas, respuestas a preguntas. También se hace lead scoring: se regalan descargables para conocer intereses, dolores e ingresos de la gente.</div>
       </div>
     </div>
     <div class="p2-step">
-      <div class="p2-num">5</div>
+      <div class="p2-num">6</div>
       <div class="p2-content">
-        <div class="p2-title">Día del lanzamiento — 31 de agosto</div>
-        <div class="p2-desc">Dos mensajes de WhatsApp: uno al terminar la clase, uno antes de las 10:30pm. <strong>Nada más ese día.</strong> Más mensajes no significa más ventas — el exceso quema la lista.</div>
+        <div class="p2-title">Pauta de recordación — cuenta regresiva</div>
+        <div class="p2-desc">Solo a los ya registrados, con cuenta regresiva: <strong>"la clase en 5 días… 4… 3… 2… 1… hoy."</strong> No se arranca dos semanas antes — la gente se olvida. Cinco días antes es el punto exacto. Es lo que faltó en el último lanzamiento.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">7</div>
+      <div class="p2-content">
+        <div class="p2-title">Testimonios — prueba social</div>
+        <div class="p2-desc">Testimonios de alumnos, tanto en reel como en historias. Se graban en llamada con un guión de marketing ("¿este curso te ayudó a dar el paso?"). <strong>El testimonio se sube de último en el día:</strong> si la primera historia del día ya fue bien, arrastra los números de las siguientes. Prueba social = confianza en la etapa de venta.</div>
+      </div>
+    </div>
+    <div class="p2-step">
+      <div class="p2-num">8</div>
+      <div class="p2-content">
+        <div class="p2-title">Día del lanzamiento — el carrito y el bono único</div>
+        <div class="p2-desc">El día de cierre se anuncia <strong>UN solo bono — el que se acaba ESE día.</strong> No se mencionan los otros. ¿Por qué? Muchas opciones = indecisión = no compra. Y si insinúas que viene algo más, la gente espera. Pinta un solo camino. Dos mensajes de WhatsApp máximo: uno al terminar la clase, uno antes de medianoche. <strong>Nada más ese día</strong> — el exceso quema la lista.</div>
       </div>
     </div>
   </div>
